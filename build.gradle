@@ -5,7 +5,7 @@ println "building version ${version}"
 
 
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.51'
     repositories {
         mavenCentral()
         jcenter()
@@ -26,6 +26,10 @@ repositories {
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.6'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.6'
 
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -111,8 +115,8 @@ uploadArchives {
                 url 'https://github.com/npryce/konfig'
 
                 scm {
-                    connection 'git@github.com:npryce/konfig.git'
-                    url 'https://github.com/npryce/konfig'
+                    connection 'git@github.com:hyronx/konfig.git'
+                    url 'https://github.com/hyronx/konfig'
                 }
 
                 licenses {
@@ -131,6 +135,10 @@ uploadArchives {
                         id 'dmcg'
                         name 'Duncan McGregor'
                     }
+                    developer {
+                        id 'hyronx'
+                        name 'Fabian Loewe'
+                    }
                 }
             }
         }
@@ -141,4 +149,3 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.7'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
-
